@@ -6,9 +6,9 @@ function Table({ headers, data }) {
   ));
 
   const tableHeaderColumnData = data.map((item, rowIndex) => (
-    <tr key={rowIndex}>
+    <tr key={"Row" + rowIndex}>
       {Object.keys(item).map((key, colIndex) => (
-        <td key={colIndex}>{item[key]}</td>
+        <td key={"Col" + colIndex}>{item[key].toString()}</td>
       ))}
     </tr>
   ));

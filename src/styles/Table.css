@@ -1,23 +1,23 @@
-#table{
+.table-container {
     width: 100%;
-    
+    overflow-x: auto;
+    margin-bottom: 60px;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom:  60px ;
-    font-size: 1em;
+    font-size: 1.2em;
     font-family: Arial, sans-serif;
-    min-width: 400px;
+    /* min-width: 400px; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 thead tr {
     background-color: #260754;
     color: #ffffff;
-    text-align: left;
-    font-weight: bold;
     text-align: center;
+    font-weight: bold;
 }
 
 th, td {
@@ -27,4 +27,56 @@ th, td {
 
 tbody tr:hover {
     background-color: #f1f1f1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    table {
+        width: 100%;
+        font-size: 0.8em;
+    }
+
+    th, td {
+        padding: 10px 12px;
+    }
+
+    
+}
+
+@media (max-width: 900px) {
+    table {
+        font-size: 0.66em;
+    }
+    th, td {
+        padding: 6px 8px;
+    } 
+}
+
+@media (max-width: 756px) {
+    table {
+        width: 100%;
+        font-size: 0.7em;
+    }
+
+    th, td {
+        padding: 6px 8px;
+    }
+
+    .table-container {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 450px) {
+    table {
+        width: 100%;
+        font-size: 0.5em;
+    }
+
+    th, td {
+        padding: 4px 5px;
+    }
+
+    .table-container {
+        margin-bottom: 10px;
+    }
 }

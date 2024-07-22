@@ -1,18 +1,64 @@
 .App {
-    display: flex;
-    align-items: center;
-    justify-content: end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+/* Adjust the dropdown container and select for responsiveness */
+.dropdown-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dropdown-container select {
+  padding: 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #E3BEF4;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .App {
+      justify-content: end;
   }
-  .dropdown-container {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  } 
+
   .dropdown-container select {
-    padding: 16px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #E3BEF4;
+      padding: 14px;
+      font-size: 14px;
   }
-  
+}
+
+@media (max-width: 900px) {
+  .App {
+      flex-direction: column;
+      align-items: flex-end;
+  }
+
+  .dropdown-container {
+      gap: 8px;
+  }
+
+  .dropdown-container select {
+      padding: 12px;
+      font-size: 14px;
+      width: 100%;  /* Full width for better usability on smaller screens */
+  }
+}
+
+@media (max-width: 756px) {
+  .dropdown-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 5px;
+  }
+
+  .dropdown-container select {
+      padding: 8px;
+      font-size: 10px;
+      width: 100%;
+  }
+}

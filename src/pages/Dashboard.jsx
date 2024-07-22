@@ -9,16 +9,6 @@ import '../styles/Dashboard.css';
 import Boxdashboard from '../components/Boxdashboard';
 
 
-import React, { useState, useEffect } from "react";
-import {
-  getTotalFarmers,
-  getTotalFarmlands,
-  getactiveCropCycles,
-  getTotalFarmlandSize,
-} from "../api/summary";
-import "../styles/Dashboard.css";
-import Boxdashboard from "../components/Boxdashboard";
-
 const Dashboard = () => {
   const [totalFarmers, setTotalFarmers] = useState(0);
   const [totalFarmlands, setTotalFarmlands] = useState(0);
@@ -52,7 +42,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <div className="dashboard-stats">
         <Boxdashboard title="Total Farmers" value={totalFarmers} />
-        <Boxdashboard title="Total Farmlands" value={totalFarmlands} />
+          <Boxdashboard title="Total Farmlands" value={totalFarmlands} />
         <Boxdashboard title="Active Cropcycles" value={activeCropcycles} />
         <Boxdashboard title="Total Farmland Size" value={totalFarmlandSize} />
       </div>

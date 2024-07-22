@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getProvince, getDistrict } from "../api/province";
+import { getProvince, getDistrict, getFarmersByDistrict } from "../api/province";
 import "../styles/Dropdown.css";
 
-const Dropdown = () => {
+const Dropdown = ({ setFarmers }) => {
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
 
@@ -13,8 +13,7 @@ const Dropdown = () => {
         console.log("Data: ", provincesData);
 
         setProvinces(provincesData);
-      
-      } catch (error) {2023
+      } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
@@ -25,8 +24,15 @@ const Dropdown = () => {
   const handleChange = async (event) => {
     console.log("Selected Province: ", event.target.value);
     const districtsData = await getDistrict(event.target.value);
-    setDistricts(districtsData)
-    console.log(districtsData)
+    setDistricts(districtsData);
+    console.log(districtsData);
+  };
+
+  const handleChangedis = async (event) => {
+    console.log("Selected District: ", event.target.value);
+    const farmerData = await getFarmersByDistrict(event.target.value);
+    setFarmers(farmerData);
+    console.log(farmerData);
   };
 
   return (
@@ -41,8 +47,8 @@ const Dropdown = () => {
           ))}
         </select>
 
-        <select>
-          <option>All</option>
+        <select onChange={handleChangedis}>
+          <option value="">All</option>
           {districts.map((district) => (
             <option key={district.id} value={district.id}>
               {district.name}

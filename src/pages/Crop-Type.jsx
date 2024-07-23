@@ -1,33 +1,29 @@
 import Table from "../components/Table";
-import '../api/famrlands';
 import { useEffect, useState } from "react";
-import { getFarmlands } from "../api/famrlands";
+import { getCropTypes } from "../api/crop-cycle";
 import "../styles/Table.css";
 
-const Farmlands = () => {
-  const [Farmlads, setFarmland] = useState([]);
+const CropTypes = () => {
+  const [CropType, setCropType] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const data = await getFarmlands();
+        const data = await getCropTypes();
 
         console.log("Data fetched: ", {data});
 
         const data1 = data.map(item => {
           return {
             "ID": item.id,
-            "Size": item.size,
-            "Latitude": item.latitude,
-            "Longitude": item.longitude,
-            "Farmer_id": item.farmer_id,
-            "Status": item.status,
+            "Name": item.name,
+            "Crop-Type": item.crop_type_id
           }
         })
 
         console.log(data1);
 
-        setFarmland(data1);
+        setCropType(data1);
       } catch (error) {
         console.log('Error fetching data:', error);
       }
@@ -40,16 +36,13 @@ const Farmlands = () => {
     <Table 
       headers={[
         "ID",
-        "Size",
-        "Latitude",
-        "Longitude",
-        "Farmer_id",
-        "Status"
+        "Name",
+        "Crop-Type"
       ]}
-      data={Farmlads}
+      data={CropType}
     />
     </>
   );
 };
 
-export default Farmlands;
+export default CropTypes;
